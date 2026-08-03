@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-radial-dark {
+    background: radial-gradient(circle at 50% 20%, #0B0F19 0%, #030712 100%);
+  }
+  .bg-radial-light {
+    background: radial-gradient(circle at 50% 20%, #f8fafc 0%, #e2e8f0 100%);
+  }
+  .font-mono-code {
+    font-family: 'Fira Code', monospace;
+  }
+  .glass-card {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .purple-glow {
+    box-shadow: 0 0 50px -10px rgba(168, 85, 247, 0.3);
+  }
+  .pink-purple-gradient-text {
+    background: linear-gradient(135deg, #c084fc 0%, #e879f9 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Custom Keyframe animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; filter: blur(40px); }
+  50% { opacity: 0.8; filter: blur(60px); }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Custom grid background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-grid-pattern-light {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
