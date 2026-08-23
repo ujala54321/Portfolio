@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
-import { Server, Layout, Database, Wrench, Cpu, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Server, Layout, Database, Wrench, Cpu, Sparkles, CheckCircle2, Cloud } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -14,6 +14,8 @@ export const Skills: React.FC = () => {
         return <Server className="w-5 h-5 text-purple-400" />;
       case 'Layout':
         return <Layout className="w-5 h-5 text-pink-400" />;
+      case 'Cloud':
+        return <Cloud className="w-5 h-5 text-cyan-400" />;
       case 'Database':
         return <Database className="w-5 h-5 text-sky-400" />;
       case 'Wrench':

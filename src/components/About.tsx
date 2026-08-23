@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
+import { PERSONAL_INFO } from '../data/portfolioData';
 import {
   Code2,
   Server,
@@ -12,10 +13,12 @@ import {
   Layers,
   Award,
   Terminal,
+  User,
 } from 'lucide-react';
 
 export const About: React.FC = () => {
   const { theme } = useTheme();
+  const [imgError, setImgError] = useState(false);
 
   const corePillars = [
     {
@@ -25,8 +28,8 @@ export const About: React.FC = () => {
     },
     {
       icon: <Code2 className="w-5 h-5 text-pink-400" />,
-      title: 'Angular & Modern Frontend',
-      desc: 'Building responsive user interfaces with Angular, TypeScript, Reactive Forms, and Tailwind/Bootstrap CSS.',
+      title: 'React.js, Angular & Modern Frontend',
+      desc: 'Building responsive user interfaces with React.js, Angular, TypeScript, HTML5/CSS3, and Bootstrap.',
     },
     {
       icon: <Database className="w-5 h-5 text-sky-400" />,
@@ -35,16 +38,16 @@ export const About: React.FC = () => {
     },
     {
       icon: <GraduationCap className="w-5 h-5 text-emerald-400" />,
-      title: 'MCA Graduate & Academic Excellence',
-      desc: 'Postgraduate in Computer Applications with a strong foundation in Data Structures, Algorithms, and System Design.',
+      title: 'MCA Graduate & Cloud Engineering',
+      desc: 'Master of Computer Application with expertise in Azure App Services, CI/CD pipelines, and clean OOP architecture.',
     },
   ];
 
   const quickStats = [
     { label: 'Primary Stack', value: 'ASP.NET Core & C#' },
     { label: 'Role', value: 'Software Engineer' },
-    { label: 'Current Org', value: 'Zebra TechnoSys' },
-    { label: 'Location', value: 'Bengaluru, India' },
+    { label: 'Organization', value: 'Zebra TechnoSys' },
+    { label: 'Location', value: 'Lucknow, India' },
   ];
 
   return (
@@ -90,23 +93,35 @@ export const About: React.FC = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-bl-full pointer-events-none" />
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-purple-500/30">
-                  UM
+                <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-600 to-pink-600 p-[2px] shadow-lg shadow-purple-500/30 shrink-0">
+                  <div className="w-full h-full rounded-[14px] overflow-hidden bg-slate-900 flex items-center justify-center">
+                    {!imgError && PERSONAL_INFO.avatar ? (
+                      <img
+                        src={PERSONAL_INFO.avatar}
+                        alt="Ujala Maurya"
+                        referrerPolicy="no-referrer"
+                        onError={() => setImgError(true)}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-white font-extrabold text-xl">UM</span>
+                    )}
+                  </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">Ujala Maurya</h3>
+                  <h3 className="text-xl font-bold">{PERSONAL_INFO.name}</h3>
                   <p className="text-xs font-semibold text-purple-400">
-                    Software Engineer @ Zebra TechnoSys
+                    {PERSONAL_INFO.title} @ Zebra TechnoSys
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-sm leading-relaxed text-slate-300 dark:text-slate-300 light:text-slate-600">
                 <p>
-                  I am a <strong className="text-white dark:text-white light:text-slate-900 font-bold">Software Engineer</strong> and <strong className="text-white dark:text-white light:text-slate-900 font-bold">MCA Graduate</strong> currently crafting enterprise applications at Zebra TechnoSys in Bengaluru, India.
+                  I am a <strong className="text-white dark:text-white light:text-slate-900 font-bold">Software Engineer</strong> and <strong className="text-white dark:text-white light:text-slate-900 font-bold">MCA Graduate</strong> with hands-on experience building robust web applications across the .NET ecosystem at Zebra TechnoSys in Lucknow, India.
                 </p>
                 <p>
-                  My core technical expertise revolves around <strong className="text-purple-400">C#</strong>, <strong className="text-pink-400">ASP.NET Core (.NET 8)</strong>, <strong className="text-sky-400">Angular</strong>, <strong className="text-emerald-400">Entity Framework Core</strong>, <strong className="text-amber-400">SQL Server</strong>, and <strong className="text-indigo-400">REST APIs</strong>.
+                  My core technical expertise spans <strong className="text-purple-400">C#</strong>, <strong className="text-pink-400">ASP.NET Core (.NET 8 / .NET 6)</strong>, <strong className="text-cyan-400">Azure Cloud Services & DevOps</strong>, <strong className="text-sky-400">React.js & Angular</strong>, <strong className="text-emerald-400">Entity Framework Core</strong>, <strong className="text-amber-400">SQL Server</strong>, and <strong className="text-indigo-400">REST APIs</strong>.
                 </p>
                 <p>
                   I love building scalable web applications structured around Clean Architecture, Repository Pattern, and intuitive user experiences. Beyond writing code, I am deeply committed to physical fitness, playing chess, continuous learning, and maintaining a healthy work-life balance.

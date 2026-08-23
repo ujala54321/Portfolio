@@ -1,11 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { GALLERY_PHOTOS } from '../data/portfolioData';
 import { GalleryPhoto } from '../types';
-import { Camera, ZoomIn, X, ChevronLeft, ChevronRight, Upload, Link, RefreshCw, MapPin, CheckCircle2 } from 'lucide-react';
+import { Camera, ZoomIn, X, ChevronLeft, ChevronRight, Upload, Link, RefreshCw, MapPin, CheckCircle2, Image as ImageIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
 
-const LOCAL_STORAGE_KEY = 'ujala_portfolio_gallery_photos_v3';
+const LOCAL_STORAGE_KEY = 'ujala_portfolio_gallery_photos_v6';
+
+export const formatImageUrl = (url: string): string => {
+  if (!url) return '';
+  const driveFileMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (driveFileMatch && driveFileMatch[1]) {
+    return `https://lh3.googleusercontent.com/d/${driveFileMatch[1]}`;
+  }
+  const driveIdMatch = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (driveIdMatch && driveIdMatch[1]) {
+    return `https://lh3.googleusercontent.com/d/${driveIdMatch[1]}`;
+  }
+  return url;
+};
+
+const handleImgErrorFallback = (e: React.SyntheticEvent<HTMLImageElement, Event>, originalUrl: string) => {
+  const target = e.currentTarget;
+  // If it was an lh3 link, try thumbnail fallback
+  const lh3Match = originalUrl.match(/lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/);
+  if (lh3Match && lh3Match[1] && !target.src.includes('drive.google.com/thumbnail')) {
+    target.src = `https://drive.google.com/thumbnail?id=${lh3Match[1]}&sz=w1200`;
+  }
+};
 
 export const Gallery: React.FC = () => {
   const { theme } = useTheme();
@@ -13,7 +35,13 @@ export const Gallery: React.FC = () => {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= 4) {
+          return parsed.map((p: GalleryPhoto) => ({
+            ...p,
+            image: formatImageUrl(p.image),
+          }));
+        }
       } catch (e) {
         console.error(e);
       }
@@ -71,8 +99,9 @@ export const Gallery: React.FC = () => {
 
   const handleApplyUrl = (targetPhotoId: string) => {
     if (!customUrlInput.trim()) return;
+    const formatted = formatImageUrl(customUrlInput.trim());
     setPhotos((prev) =>
-      prev.map((p) => (p.id === targetPhotoId ? { ...p, image: customUrlInput.trim() } : p))
+      prev.map((p) => (p.id === targetPhotoId ? { ...p, image: formatted } : p))
     );
     setCustomUrlInput('');
     setEditingPhoto(null);
@@ -101,14 +130,14 @@ export const Gallery: React.FC = () => {
               theme === 'dark' ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            Moments from software engineering, Zebra TechnoSys, university campus life, and technical sessions.
+            Moments from software engineering, Zebra TechnoSys, university campus life, and professional milestones.
           </p>
 
-          {/* Action to manage / replace photos */}
+          {/* Action to reset */}
           <div className="mt-6 flex items-center justify-center gap-3">
             <button
               onClick={handleResetPhotos}
-              className="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors"
+              className="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
               title="Reset gallery photos to default"
             >
               <RefreshCw className="w-3.5 h-3.5" />
@@ -118,7 +147,7 @@ export const Gallery: React.FC = () => {
         </div>
 
         {/* Filter Badges */}
-        <div className="flex items-center justify-center gap-2 mb-10">
+        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -152,16 +181,18 @@ export const Gallery: React.FC = () => {
                 {/* Image Container */}
                 <div
                   onClick={() => setSelectedPhotoIndex(originalIndex)}
-                  className="relative h-72 sm:h-80 overflow-hidden cursor-pointer"
+                  className="relative h-72 sm:h-80 overflow-hidden cursor-pointer bg-slate-900 flex items-center justify-center"
                 >
                   <img
                     src={photo.image}
                     alt={photo.title}
+                    referrerPolicy="no-referrer"
+                    onError={(e) => handleImgErrorFallback(e, photo.image)}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   
                   {/* Glassmorphism Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity pointer-events-none" />
 
                   {/* Top Category Badge */}
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-extrabold bg-purple-950/80 text-purple-200 border border-purple-500/30 backdrop-blur-md">
@@ -198,7 +229,7 @@ export const Gallery: React.FC = () => {
 
                   <button
                     onClick={() => setEditingPhoto(photo)}
-                    className="px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center gap-1 text-[11px]"
+                    className="px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center gap-1 text-[11px] cursor-pointer"
                   >
                     <Link className="w-3.5 h-3.5 text-sky-400" />
                     <span>URL</span>
@@ -223,7 +254,7 @@ export const Gallery: React.FC = () => {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedPhotoIndex(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-slate-950/80 text-white hover:bg-slate-800 transition-colors border border-slate-700 focus:outline-none"
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-slate-950/80 text-white hover:bg-slate-800 transition-colors border border-slate-700 focus:outline-none cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -233,18 +264,20 @@ export const Gallery: React.FC = () => {
                 <img
                   src={activePhoto.image}
                   alt={activePhoto.title}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => handleImgErrorFallback(e, activePhoto.image)}
                   className="max-h-[70vh] w-auto object-contain"
                 />
 
                 <button
                   onClick={handlePrev}
-                  className="absolute left-4 p-3 rounded-full bg-slate-900/80 text-white hover:bg-slate-800 transition-colors border border-slate-700"
+                  className="absolute left-4 p-3 rounded-full bg-slate-900/80 text-white hover:bg-slate-800 transition-colors border border-slate-700 cursor-pointer"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-4 p-3 rounded-full bg-slate-900/80 text-white hover:bg-slate-800 transition-colors border border-slate-700"
+                  className="absolute right-4 p-3 rounded-full bg-slate-900/80 text-white hover:bg-slate-800 transition-colors border border-slate-700 cursor-pointer"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -274,7 +307,7 @@ export const Gallery: React.FC = () => {
                 <h3 className="text-base font-bold text-white">Paste Image URL</h3>
                 <button
                   onClick={() => setEditingPhoto(null)}
-                  className="p-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
+                  className="p-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -288,20 +321,20 @@ export const Gallery: React.FC = () => {
                 type="url"
                 value={customUrlInput}
                 onChange={(e) => setCustomUrlInput(e.target.value)}
-                placeholder="https://example.com/my-photo.jpg"
+                placeholder="https://drive.google.com/file/d/.../view"
                 className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white focus:outline-none focus:border-purple-500"
               />
 
               <div className="flex items-center justify-end gap-2 pt-2">
                 <button
                   onClick={() => setEditingPhoto(null)}
-                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white"
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={() => handleApplyUrl(editingPhoto.id)}
-                  className="px-5 py-2 rounded-xl text-xs font-bold text-white bg-purple-600 hover:bg-purple-500"
+                  className="px-5 py-2 rounded-xl text-xs font-bold text-white bg-purple-600 hover:bg-purple-500 cursor-pointer"
                 >
                   Save Picture
                 </button>
@@ -313,3 +346,4 @@ export const Gallery: React.FC = () => {
     </section>
   );
 };
+

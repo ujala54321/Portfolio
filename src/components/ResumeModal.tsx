@@ -114,11 +114,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     <div class="section-title">Skills</div>
     <ul>
       <li><span class="bold">Languages:</span> C#, Python, TypeScript, JavaScript, SQL</li>
-      <li><span class="bold">Technologies & Frameworks:</span> ASP.NET Core (.NET 8 / .NET 6), .NET Framework 4.5, Angular, Entity Framework Core, LINQ, REST APIs, MVC</li>
+      <li><span class="bold">Technologies & Frameworks:</span> ASP.NET Core (.NET 8 / .NET 6), .NET Framework 4.5, React.js, Angular, Entity Framework Core, LINQ, REST APIs, MVC</li>
       <li><span class="bold">Frontend:</span> HTML5, CSS3, Bootstrap, Responsive Design</li>
-      <li><span class="bold">Tools & DevOps:</span> Git, GitHub, Visual Studio, Postman, SQL Server, MySQL, Gen AI, Copilot</li>
+      <li><span class="bold">Tools & DevOps:</span> Git, GitHub, Visual Studio, Postman, SQL Server, MySQL, Azure, Gen AI, Copilot</li>
+      <li><span class="bold">Cloud Engineering:</span> Azure App Services, Azure Resource Governance, Azure DevOps (CI/CD Pipelines)</li>
       <li><span class="bold">Core Competencies:</span> Object-Oriented Programming (OOP), Data Structures, Database Design, Debugging, Application Maintenance</li>
-      <li><span class="bold">Additional Skills:</span> Content Writing & Blogging</li>
     </ul>
 
     <div class="section-title">Work Experience</div>
@@ -128,13 +128,12 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     </div>
     <div class="flex-between" style="margin-bottom: 6px;">
       <span class="job-title">Software Engineer</span>
-      <span>Nov 2024 – Present</span>
+      <span>May 2025 – Aug 2026</span>
     </div>
     <ul>
       <li><span class="bold">Digital Awareness Web Application:</span> Engineered a comprehensive content management platform using C#, ASP.NET Core, and SQL Server, enabling administrators to efficiently distribute and manage digital awareness resources to a wide user base.</li>
       <li><span class="bold">Chaudhary Finance Platform:</span> Developed frontend features for a financial services web application using JavaScript, HTML5, and CSS3, improving user engagement for mutual fund investments and insurance support services.</li>
       <li><span class="bold">Application Maintenance & Enhancement:</span> Conducted regular code reviews, debugging, and system optimizations across multiple web applications, successfully reducing technical debt and improving overall application performance and stability.</li>
-      <li><span class="bold">Content Writing:</span> Wrote blogs and articles for Upgrate Infotech, an associated client project, contributing to their technical content and online presence alongside core development work.</li>
     </ul>
 
     <div class="section-title">Project Work</div>
@@ -150,7 +149,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     <div class="section-title">Education</div>
     <div class="flex-between">
       <span class="bold">Master of Computer Application (MCA)</span>
-      <span>Aug 2023 – Jun 2025</span>
+      <span>Jun 2023 – May 2025</span>
     </div>
     <div style="margin-bottom: 4px;">IISE, Lucknow — <span class="bold">CGPA: 7.8/10</span></div>
     <ul>
@@ -317,11 +316,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 </h2>
                 <ul className="list-disc list-inside text-xs sm:text-sm text-slate-800 space-y-1">
                   <li><span className="font-bold">Languages:</span> C#, Python, TypeScript, JavaScript, SQL</li>
-                  <li><span className="font-bold">Technologies & Frameworks:</span> ASP.NET Core (.NET 8 / .NET 6), .NET Framework 4.5, Angular, Entity Framework Core, LINQ, REST APIs, MVC</li>
+                  <li><span className="font-bold">Technologies & Frameworks:</span> ASP.NET Core (.NET 8 / .NET 6), .NET Framework 4.5, React.js, Angular, Entity Framework Core, LINQ, REST APIs, MVC</li>
                   <li><span className="font-bold">Frontend:</span> HTML5, CSS3, Bootstrap, Responsive Design</li>
-                  <li><span className="font-bold">Tools & DevOps:</span> Git, GitHub, Visual Studio, Postman, SQL Server, MySQL, Gen AI, Copilot</li>
+                  <li><span className="font-bold">Tools & DevOps:</span> Git, GitHub, Visual Studio, Postman, SQL Server, MySQL, Azure, Gen AI, Copilot</li>
+                  <li><span className="font-bold">Cloud Engineering:</span> Azure App Services, Azure Resource Governance, Azure DevOps (CI/CD Pipelines)</li>
                   <li><span className="font-bold">Core Competencies:</span> Object-Oriented Programming (OOP), Data Structures, Database Design, Debugging, Application Maintenance</li>
-                  <li><span className="font-bold">Additional Skills:</span> Content Writing & Blogging</li>
                 </ul>
               </div>
 
@@ -337,13 +336,12 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   </div>
                   <div className="flex justify-between items-baseline text-xs sm:text-sm text-slate-800 mb-1.5 italic">
                     <span>Software Engineer</span>
-                    <span className="not-italic">Nov 2024 – Present</span>
+                    <span className="not-italic">May 2025 – Aug 2026</span>
                   </div>
                   <ul className="list-disc list-inside text-xs sm:text-sm text-slate-800 space-y-1">
                     <li><span className="font-bold">Digital Awareness Web Application:</span> Engineered a comprehensive content management platform using C#, ASP.NET Core, and SQL Server, enabling administrators to efficiently distribute and manage digital awareness resources to a wide user base.</li>
                     <li><span className="font-bold">Chaudhary Finance Platform:</span> Developed frontend features for a financial services web application using JavaScript, HTML5, and CSS3, improving user engagement for mutual fund investments and insurance support services.</li>
                     <li><span className="font-bold">Application Maintenance & Enhancement:</span> Conducted regular code reviews, debugging, and system optimizations across multiple web applications, successfully reducing technical debt and improving overall application performance and stability.</li>
-                    <li><span className="font-bold">Content Writing:</span> Wrote blogs and articles for Upgrate Infotech, an associated client project, contributing to their technical content and online presence alongside core development work.</li>
                   </ul>
                 </div>
               </div>
@@ -376,7 +374,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   <div>
                     <div className="flex justify-between items-baseline font-bold text-xs sm:text-sm text-slate-950">
                       <span>Master of Computer Application (MCA)</span>
-                      <span className="font-normal">Aug 2023 – Jun 2025</span>
+                      <span className="font-normal">Jun 2023 – May 2025</span>
                     </div>
                     <div className="text-xs sm:text-sm text-slate-800 mb-1">
                       IISE, Lucknow — <span className="font-bold">CGPA: 7.8/10</span>
