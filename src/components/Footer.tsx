@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
                 Ujala Maurya
               </p>
               <p className="text-xs text-purple-400 font-semibold">
-                Software Engineer • Bengaluru, India
+                Software Engineer • Whitefield, Bengaluru, India
               </p>
             </div>
           </div>

@@ -47,7 +47,7 @@ export const About: React.FC = () => {
     { label: 'Primary Stack', value: 'ASP.NET Core & C#' },
     { label: 'Role', value: 'Software Engineer' },
     { label: 'Organization', value: 'Zebra TechnoSys' },
-    { label: 'Location', value: 'Lucknow, India' },
+    { label: 'Location', value: 'Whitefield, Bengaluru' },
   ];
 
   return (

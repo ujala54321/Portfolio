@@ -102,7 +102,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   <div class="resume-container">
     <h1>Ujala Maurya</h1>
     <div class="contact-info">
-      8468018202 · <a href="mailto:ujalamaurya202@gmail.com">ujalamaurya202@gmail.com</a><br>
+      8468018202 · <a href="mailto:shadesofujala@gmail.com">shadesofujala@gmail.com</a><br>
       <a href="https://github.com/ujala54321">github.com/ujala54321</a> · 
       <a href="https://linkedin.com/in/ujala-maurya-136b2532a/">linkedin.com/in/ujala-maurya-136b2532a/</a> · 
       <a href="https://leetcode.com/u/ujala_maurya02/">leetcode.com/u/ujala_maurya02/</a>
@@ -280,8 +280,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 <p className="text-xs sm:text-sm text-slate-800 space-x-1">
                   <span>8468018202</span>
                   <span>·</span>
-                  <a href="mailto:ujalamaurya202@gmail.com" className="text-blue-700 hover:underline">
-                    ujalamaurya202@gmail.com
+                  <a href="mailto:shadesofujala@gmail.com" className="text-blue-700 hover:underline">
+                    shadesofujala@gmail.com
                   </a>
                 </p>
                 <p className="text-xs sm:text-sm text-slate-800 space-x-2 mt-1">
