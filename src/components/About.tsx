@@ -46,7 +46,7 @@ export const About: React.FC = () => {
   const quickStats = [
     { label: 'Primary Stack', value: 'ASP.NET Core & C#' },
     { label: 'Role', value: 'Software Engineer' },
-    { label: 'Organization', value: 'Zebra TechnoSys' },
+    { label: 'Current Company', value: 'Gyansify' },
     { label: 'Location', value: 'Whitefield, Bengaluru' },
   ];
 
@@ -111,14 +111,14 @@ export const About: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold">{PERSONAL_INFO.name}</h3>
                   <p className="text-xs font-semibold text-purple-400">
-                    {PERSONAL_INFO.title} @ Zebra TechnoSys
+                    {PERSONAL_INFO.title} @ Gyansify
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-sm leading-relaxed text-slate-300 dark:text-slate-300 light:text-slate-600">
                 <p>
-                  I am a <strong className="text-white dark:text-white light:text-slate-900 font-bold">Software Engineer</strong> and <strong className="text-white dark:text-white light:text-slate-900 font-bold">MCA Graduate</strong> with hands-on experience building robust web applications across the .NET ecosystem at Zebra TechnoSys in Lucknow, India.
+                  I am a <strong className="text-white dark:text-white light:text-slate-900 font-bold">Software Engineer</strong> at <strong className="text-purple-400 font-bold">Gyansify</strong> in Bengaluru and <strong className="text-white dark:text-white light:text-slate-900 font-bold">MCA Graduate</strong> with hands-on experience building robust enterprise web applications across the .NET ecosystem, having previously developed production systems at <strong className="text-purple-300 font-semibold">Upgrate Infotech</strong> in Lucknow, India.
                 </p>
                 <p>
                   My core technical expertise spans <strong className="text-purple-400">C#</strong>, <strong className="text-pink-400">ASP.NET Core (.NET 8 / .NET 6)</strong>, <strong className="text-cyan-400">Azure Cloud Services & DevOps</strong>, <strong className="text-sky-400">React.js & Angular</strong>, <strong className="text-emerald-400">Entity Framework Core</strong>, <strong className="text-amber-400">SQL Server</strong>, and <strong className="text-indigo-400">REST APIs</strong>.

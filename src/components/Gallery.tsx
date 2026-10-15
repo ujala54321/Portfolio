@@ -49,7 +49,7 @@ export const Gallery: React.FC = () => {
               theme === 'dark' ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            Moments from software engineering, Zebra TechnoSys, university campus life, and professional milestones.
+            Moments from software engineering at Gyansify & Upgrate Infotech, university campus life, and professional milestones.
           </p>
         </div>
 

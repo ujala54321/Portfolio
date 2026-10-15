@@ -227,7 +227,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
 
             <div className="absolute -top-6 -right-4 hidden sm:flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-xl shadow-2xl">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              <span className="text-xs font-bold text-emerald-300">Zebra TechnoSys Developer</span>
+              <span className="text-xs font-bold text-emerald-300">Software Engineer @ Gyansify</span>
             </div>
           </motion.div>
 

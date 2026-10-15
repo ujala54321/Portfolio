@@ -123,7 +123,21 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
     <div class="section-title">Work Experience</div>
     <div class="flex-between">
-      <span class="bold">Zebra TechnoSys</span>
+      <span class="bold">Gyansify</span>
+      <span class="job-title">Bengaluru, India</span>
+    </div>
+    <div class="flex-between" style="margin-bottom: 6px;">
+      <span class="job-title">Software Engineer</span>
+      <span>Aug 2026 – Present</span>
+    </div>
+    <ul>
+      <li><span class="bold">Enterprise .NET & Cloud Engineering:</span> Architecting scalable RESTful web services and enterprise modules using C#, ASP.NET Core (.NET 8), and SQL Server.</li>
+      <li><span class="bold">Full-Stack Architecture & Data Access:</span> Implementing Entity Framework Core repositories and optimized LINQ queries for high-throughput data processing and clean architecture.</li>
+      <li><span class="bold">Cross-Functional Delivery & CI/CD:</span> Driving agile feature development, peer reviews, unit testing, and cloud deployments on Azure.</li>
+    </ul>
+
+    <div class="flex-between" style="margin-top: 10px;">
+      <span class="bold">Upgrate Infotech</span>
       <span class="job-title">Lucknow, India</span>
     </div>
     <div class="flex-between" style="margin-bottom: 6px;">
@@ -329,9 +343,28 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 <h2 className="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-900 pb-0.5 mb-2 font-sans">
                   WORK EXPERIENCE
                 </h2>
+                
+                {/* Gyansify */}
+                <div className="mb-4">
+                  <div className="flex justify-between items-baseline font-bold text-xs sm:text-sm text-slate-950">
+                    <span>Gyansify</span>
+                    <span className="italic font-normal">Bengaluru, India</span>
+                  </div>
+                  <div className="flex justify-between items-baseline text-xs sm:text-sm text-slate-800 mb-1.5 italic">
+                    <span>Software Engineer</span>
+                    <span className="not-italic text-emerald-700 font-semibold">Aug 2026 – Present</span>
+                  </div>
+                  <ul className="list-disc list-inside text-xs sm:text-sm text-slate-800 space-y-1">
+                    <li><span className="font-bold">Enterprise .NET & Cloud Engineering:</span> Architecting scalable RESTful web services and enterprise modules using C#, ASP.NET Core (.NET 8), and SQL Server.</li>
+                    <li><span className="font-bold">Full-Stack Architecture & Data Access:</span> Implementing Entity Framework Core repositories and optimized LINQ queries for high-throughput data processing and clean architecture.</li>
+                    <li><span className="font-bold">Cross-Functional Delivery & CI/CD:</span> Driving agile feature development, peer reviews, unit testing, and cloud deployments on Azure.</li>
+                  </ul>
+                </div>
+
+                {/* Upgrate Infotech */}
                 <div>
                   <div className="flex justify-between items-baseline font-bold text-xs sm:text-sm text-slate-950">
-                    <span>Zebra TechnoSys</span>
+                    <span>Upgrate Infotech</span>
                     <span className="italic font-normal">Lucknow, India</span>
                   </div>
                   <div className="flex justify-between items-baseline text-xs sm:text-sm text-slate-800 mb-1.5 italic">

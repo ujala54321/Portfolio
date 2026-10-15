@@ -89,3 +89,13 @@ export interface CodeSnippet {
   code: string;
   description: string;
 }
+
+export interface DirectMessage {
+  id: string;
+  timestamp: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  read?: boolean;
+}
